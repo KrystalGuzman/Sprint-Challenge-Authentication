@@ -15,4 +15,6 @@ server.use(express.json());
 server.use('/api/auth', authRouter);
 server.use('/api/jokes', authenticate, jokesRouter);
 
+server.use("/api", (req, res) => res.status(200).json({message: "Welcome to the Dad Jokes API!"}));
+
 module.exports = server;
