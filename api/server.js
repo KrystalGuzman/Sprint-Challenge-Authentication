@@ -8,8 +8,13 @@ const jokesRouter = require('../jokes/jokes-router.js');
 
 const server = express();
 
+const serverConfig = {
+    origin: "http://localhost:1234",
+    credentials: true
+}
+
 server.use(helmet());
-server.use(cors());
+server.use(cors(serverConfig));
 server.use(express.json());
 
 server.use('/api/auth', authRouter);
